@@ -4,80 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Rock, paper, scissors!</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script>
-        var playerScore = 0;
-        var computerScore = 0;
-        function computerPlay() {
-            let turn = Math.floor(Math.random()*3);
-            if (turn==0) {
-                return 'Rock'
-            } else if (turn ==1) {
-                return 'Paper'
-            } else {
-                return 'Scissors'
-            }
-        }
     
-        function playRound(playerSelection, computerSelection){
-            switch (playerSelection) {
-                case 'ROCK':
-                if (computerSelection=='ROCK') {
-                    return "Rock - Rock. It's a tie!"
-                } else if (computerSelection=='PAPER') {
-                    computerScore++;
-                    return "Rock - Paper. You've lost!";
-                } else {
-                    playerScore++;
-                    return "Rock - Scissors. You've won!";
-                }
-                break;
-
-                case 'PAPER':
-                if (computerSelection=='ROCK') {
-                    playerScore++;
-                    return "Paper - Rock. You've won!"
-                } else if (computerSelection=='PAPER') {
-                    return "Paper - Paper. It's a tie!";
-                } else {
-                    computerScore++;
-                    return "Paper - Scissors. You've lost!";
-                }
-                break;
-
-                case 'SCISSORS':
-                if (computerSelection=='ROCK') {
-                    computerScore++;
-                    return "Scissors - Rock. You've lost!"
-                } else if (computerSelection=='PAPER') {
-                    playerScore++;
-                    return "Scissors - Paper. You've won!";
-                } else {
-                    return "Scissors - Scissors. It's a tie!";
-                }
-                break;
-
-            }
-
-        }
-
-        
-
-        function game(){
-            for (let i=0; i<5;i++){
-                let playerSelection = prompt('Choose').toUpperCase();
-                let computerSelection = computerPlay().toUpperCase();
-                console.log(playRound(playerSelection, computerSelection))
-                let score =`${playerScore} : ${computerScore} `
-                console.log(score+` (${i+1}/5)`);
-
-            }
-            
-        }
-        game();
-
-    </script>
+        <h1>Rock, paper, scissors!</h1>
+        <div class="scoreTable">
+                <div class="who">Player</div>
+                <div class="playerPoints score" >0</div>
+                <div class="border score">/</div>
+                <div class="computerPoints score">0</div>
+                <div class="who">Computer</div>
+        </div>
+        <div class="totalGames">You have not played yet.</div>
+        <div class="choises">
+            <button class="btn" id="Rock">Rock</button>
+            <button class="btn" id="Paper">Paper</button>
+            <button class="btn" id="Scissors">Scissors</button>
+        </div>
+       
+        <div class="history">
+            <div class="log"></div>
+        </div>
+        <button class="reset">Reset</button>
+    
+    <script src="script.js"></script>
 </body>
 </html>
